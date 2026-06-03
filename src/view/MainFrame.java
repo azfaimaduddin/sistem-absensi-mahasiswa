@@ -74,9 +74,9 @@ public class MainFrame extends JFrame {
 
         tabbedPane = new JTabbedPane();
         tabbedPane.setFont(UITheme.FONT_LABEL);
-        tabbedPane.addTab("📋 Presensi Mahasiswa", buildTabMahasiswa());
-        tabbedPane.addTab("👨‍🏫 Panel Kontrol Asdos", buildTabAsdos());
-        tabbedPane.addTab("📊 Laporan Real-time",   buildTabRekap());
+        tabbedPane.addTab(" Presensi Mahasiswa", buildTabMahasiswa());
+        tabbedPane.addTab("👨‍🏫 Panel Asisten", buildTabAsdos());
+        tabbedPane.addTab(" Laporan Real-time",   buildTabRekap());
 
         tabbedPane.addChangeListener(e -> onTabChange());
         add(tabbedPane, BorderLayout.CENTER);
@@ -84,7 +84,7 @@ public class MainFrame extends JFrame {
         JPanel statusBar = new JPanel(new BorderLayout());
         statusBar.setBackground(UITheme.SECONDARY);
         statusBar.setBorder(BorderFactory.createEmptyBorder(6, 20, 6, 20));
-        JLabel lblContext = new JLabel("Sistem Manajemen Absensi Reguler • Arsitektur Berlapis MVC");
+        JLabel lblContext = new JLabel("Sistem Manajemen Absensi");
         lblContext.setFont(UITheme.FONT_SMALL);
         lblContext.setForeground(new Color(149, 165, 166));
         statusBar.add(lblContext, BorderLayout.WEST);
@@ -107,7 +107,7 @@ public class MainFrame extends JFrame {
         title.setFont(UITheme.FONT_TITLE);
         title.setForeground(Color.WHITE);
 
-        JLabel subtitle = new JLabel("Informatika UPNVY • Arsitektur MVC Sederhana Semester 4");
+        JLabel subtitle = new JLabel("Informatika UPNVY");
         subtitle.setFont(UITheme.FONT_SMALL);
         subtitle.setForeground(new Color(189, 195, 199));
 
@@ -138,7 +138,7 @@ public class MainFrame extends JFrame {
         card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
         card.setPreferredSize(new Dimension(380, 0));
 
-        JLabel lblTitle = UITheme.createHeader("📝 Validasi Presensi Mandiri");
+        JLabel lblTitle = UITheme.createHeader("📝 Presensi Mandiri");
         lblTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblCombo = new JLabel("Pilih Jadwal Kuliah Hari Ini:");
@@ -163,7 +163,7 @@ public class MainFrame extends JFrame {
         JSeparator sep = new JSeparator();
         sep.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
 
-        JLabel lblNim = new JLabel("Masukkan NIM Kamu:");
+        JLabel lblNim = new JLabel("Input NIM Mahasiswa:");
         lblNim.setFont(UITheme.FONT_LABEL);
         lblNim.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -171,7 +171,7 @@ public class MainFrame extends JFrame {
         tfNim.setAlignmentX(Component.LEFT_ALIGNMENT);
         tfNim.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
 
-        btnAbsen = UITheme.createButton("✅ VERIFIKASI PRESENSI", UITheme.SUCCESS);
+        btnAbsen = UITheme.createButton("✅ PRESENSI", UITheme.SUCCESS);
         btnAbsen.setAlignmentX(Component.LEFT_ALIGNMENT);
         btnAbsen.setMaximumSize(new Dimension(Integer.MAX_VALUE, 46));
 
@@ -216,7 +216,7 @@ public class MainFrame extends JFrame {
         ));
         taHasil.setText("Terminal log sistem: Menunggu input kartu mahasiswa.");
 
-        JButton btnRefresh = UITheme.createButton("🔄 Segarkan Data", UITheme.PRIMARY);
+        JButton btnRefresh = UITheme.createButton("🔄 Refresh", UITheme.PRIMARY);
         btnRefresh.addActionListener(e -> refreshTableRekap());
 
         JPanel topBar = new JPanel(new BorderLayout());
@@ -244,10 +244,10 @@ public class MainFrame extends JFrame {
         card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
         card.setPreferredSize(new Dimension(300, 0));
 
-        JLabel lblTitle = UITheme.createHeader("🔐 Otorisasi Asdos");
+        JLabel lblTitle = UITheme.createHeader("🔐 Otorisasi Asisten Dosen");
         lblTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        lblAsdosInfo = new JLabel("Status Sesi: Pengunjung");
+        lblAsdosInfo = new JLabel("Status Sesi: Guest");
         lblAsdosInfo.setFont(UITheme.FONT_SMALL);
         lblAsdosInfo.setForeground(UITheme.TEXT_MUTED);
         lblAsdosInfo.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -255,7 +255,7 @@ public class MainFrame extends JFrame {
         JSeparator sep = new JSeparator();
         sep.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
 
-        JLabel lblUser = new JLabel("Username Asdos:");
+        JLabel lblUser = new JLabel("Username:");
         lblUser.setFont(UITheme.FONT_LABEL);
         lblUser.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -271,11 +271,11 @@ public class MainFrame extends JFrame {
         pfPassword.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
         pfPassword.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        btnLogin = UITheme.createButton("🔑 MASUK PANEL", UITheme.PRIMARY);
+        btnLogin = UITheme.createButton("🔑 LOG IN", UITheme.PRIMARY);
         btnLogin.setMaximumSize(new Dimension(Integer.MAX_VALUE, 46));
         btnLogin.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        btnLogout = UITheme.createButton("🚪 KELUAR SESI", UITheme.DANGER);
+        btnLogout = UITheme.createButton("🚪 LOG OUT", UITheme.DANGER);
         btnLogout.setMaximumSize(new Dimension(Integer.MAX_VALUE, 46));
         btnLogout.setAlignmentX(Component.LEFT_ALIGNMENT);
         btnLogout.setVisible(false);
@@ -298,7 +298,7 @@ public class MainFrame extends JFrame {
     private JPanel buildKonfirmasiPanel() {
         JPanel card = UITheme.createCard();
         card.setLayout(new BorderLayout(0, 15));
-        JLabel lblTitle = UITheme.createHeader("🛠️ Editor Database Presensi (Hak Akses CRUD)");
+        JLabel lblTitle = UITheme.createHeader(" Editor Database Presensi");
 
         String[] cols = {"ID ENTRY", "NIM", "Nama Mahasiswa", "Waktu Sinkron", "Status Real"};
         modelPending = new DefaultTableModel(cols, 0) {
@@ -325,9 +325,9 @@ public class MainFrame extends JFrame {
         cbAsdosStatus.setFont(UITheme.FONT_BODY);
         inputBar.add(cbAsdosStatus);
 
-        btnAsdosTambah = UITheme.createButton("➕ INSERT DATA", UITheme.SUCCESS);
-        btnAsdosEdit   = UITheme.createButton("✏️ TOGGLE STATUS", UITheme.WARNING);
-        btnAsdosHapus  = UITheme.createButton("🗑️ DELETE ROW", UITheme.DANGER);
+        btnAsdosTambah = UITheme.createButton(" INSERT DATA", UITheme.SUCCESS);
+        btnAsdosEdit   = UITheme.createButton("️ UPDATE STATUS", UITheme.WARNING);
+        btnAsdosHapus  = UITheme.createButton("️ DELETE DATA", UITheme.DANGER);
 
         btnAsdosTambah.addActionListener(e -> {
             if (jadwalTerpilihGUI == null) return;
@@ -396,7 +396,7 @@ public class MainFrame extends JFrame {
         JPanel card = UITheme.createCard();
         card.setLayout(new BorderLayout(0, 15));
 
-        JLabel lblTitle = UITheme.createHeader("📊 Rekapitulasi Berkas Presensi Mahasiswa Kelas");
+        JLabel lblTitle = UITheme.createHeader(" Rekapitulasi Presensi Mahasiswa Kelas");
         
         String[] cols = {"No", "NIM", "Nama Mahasiswa", "Mata Kuliah", "Kelas", "Ruang", "Hari", "Jam Masuk", "Status"};
         DefaultTableModel modelFull = new DefaultTableModel(cols, 0) {
@@ -408,7 +408,7 @@ public class MainFrame extends JFrame {
         JScrollPane sp = new JScrollPane(tableRekap);
         sp.setBorder(BorderFactory.createEmptyBorder());
         
-        JButton btnLoadRekap = UITheme.createButton("🔄 Tarik Data SQL", UITheme.PRIMARY);
+        JButton btnLoadRekap = UITheme.createButton("🔄 Update Data", UITheme.PRIMARY);
         btnLoadRekap.addActionListener(e -> loadRekapData(modelFull));
 
         JPanel topBar = new JPanel(new BorderLayout());
@@ -548,7 +548,7 @@ public class MainFrame extends JFrame {
 
     private void prosesLogout() {
         controller.logout();
-        lblAsdosInfo.setText("Status Sesi: Pengunjung");
+        lblAsdosInfo.setText("Status Sesi: User");
         btnLogin.setVisible(true); btnLogout.setVisible(false);
         tfUsername.setText(""); pfPassword.setText("");
         modelPending.setRowCount(0);
